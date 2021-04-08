@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> {% endcomment %}
+    {% comment %} <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'img/logo1.png' %}" type="image" sizes="16x16">
+
+    <title>PoLLkar</title>
+</head>
+
+<body style="margin:0;">
+
+    {% if success %}
+        <div style="display: block; font-size:medium;font-weight: bold;background-color: lightgreen;padding: 8px;font-family:cursive; margin: 0px;">
+        <span >Question has been posted successfully!!</span>
+        </div>
+    {% endif %}
+
+    <header>
+        <!-- Image and text -->
+        <nav class="navbar">
+
+            <img id="ilogo" src="{% static 'img/logo1.png' %}" width="50" alt="logo"> PoLL-कर
+
+        </nav>
+    </header>
+    <div>
+        <form action="/" method="POST"  class="main-form">
+            {% csrf_token %}
+            <div >
+                <label for="qp-question"></label>
+                <textarea name="question" id="qp-question"  autofocus="" placeholder="Type your question here?"  spellcheck="false"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput1">1.</label>
+                <input name="option1" type="text" class="form-control" id="formGroupExampleInput1" placeholder="Add First Option" size="26">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">2.</label>
+                <input name="option2" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Add Second Option"size="26">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput3">3.</label>
+                <input name="option3" type="text" class="form-control" id="formGroupExampleInput3" placeholder="Add Third Option"size="26">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput4">4. </label>
+                <input name="option4" type="text" class="form-control" id="formGroupExampleInput4" placeholder="Add Fourth Option"size="26">
+            </div>
+            <div>
+                <button type="submit" > <span>create PoLL</span> </button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
